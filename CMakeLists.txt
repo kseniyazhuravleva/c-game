@@ -1,5 +1,13 @@
-cmake_minimum_required(VERSION 3.30.0-rc3 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.10 FATAL_ERROR)
 
-project (cGame)
+set(PROJECT_NAME cGame)
 
-add_executable(cGame src/main.cpp)
+project (${PROJECT_NAME})
+
+add_executable(${PROJECT_NAME} src/main.cpp)
+
+add_subdirectory(external/glfw)
+include_directories(${GLFW_INCLUDE_DIR})
+target_link_libraries(${PROJECT_NAME} glfw)
+find_package(OpenGL REQUIRED)
+target_link_libraries(${PROJECT_NAME} OpenGL::GL)
