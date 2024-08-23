@@ -6,3 +6,6 @@ build/
 *.dll
 *.exe
 cmake-build-*
+
+.vscode/
+CMakeFiles/
